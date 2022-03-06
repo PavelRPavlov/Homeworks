@@ -21,17 +21,17 @@ int main()
 	{
 		bigPicture[x] = new CustomColor[imageWidth];
 	}
-	auto *mask = new CustomColor();
+	auto *singleRectangleColorMask = new CustomColor();
 	for (int x = 0; x < imageRows; x++)
 	{
 		for (int y = 0; y < imageColumns; y++)
 		{
-			mask = CustomColor::GetNextMask(*mask);
+			singleRectangleColorMask = CustomColor::GetNextMask(*singleRectangleColorMask);
 			DrawRectangle(
 				x * rectangleHeight,
 				y * rectangleWidth,
 				CreateSingleRectangle(
-					*mask,
+					*singleRectangleColorMask,
 					rectangleWidth,
 					rectangleHeight),
 				rectangleWidth,
@@ -70,9 +70,9 @@ CustomColor** CreateSingleRectangle(CustomColor& colorMask, int rectangleWidth, 
 		result[x] = new CustomColor[rectangleWidth];
 		for (int y = 0; y < rectangleWidth; y++)
 		{
-			unsigned char r = rand() % 255 * colorMask.R;
-			unsigned char g = rand() % 255 * colorMask.G;
-			unsigned char b = rand() % 255 * colorMask.B;
+			unsigned char r = rand() % FileManager::MaxColorComponent * colorMask.R;
+			unsigned char g = rand() % FileManager::MaxColorComponent * colorMask.G;
+			unsigned char b = rand() % FileManager::MaxColorComponent * colorMask.B;
 			result[x][y] = CustomColor(r, g, b);
 		}
 	}
