@@ -21,11 +21,10 @@ void FileManager::CreateFile(const char* fileName, CustomColor** color)
 
 	for (int rowIdx = 0; rowIdx < imageHeight; ++rowIdx) {
 		for (int colIdx = 0; colIdx < imageWidth; ++colIdx) {
-			CustomColor colorToPrint = color[rowIdx][colIdx];
+			auto colorToPrint = color[rowIdx][colIdx];
 			ppmFileStream << colorToPrint.R << " " << colorToPrint.G << " " << colorToPrint.B << "\t";
 		}
 		ppmFileStream << "\n";
 	}
-
 	ppmFileStream.close();
 }

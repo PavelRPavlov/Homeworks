@@ -3,10 +3,21 @@
 CustomColor::CustomColor() : CustomColor(0, 0, 0) {};
 
 CustomColor::CustomColor(int r, int g, int b) {
-		R = r;
-		G = g;
-		B = b;
-	};
+	R = r;
+	G = g;
+	B = b;
+};
+
+CustomColor* CustomColor::GetNextMask(CustomColor currentMask) {
+	int color = ToInt(currentMask);
+	color += 1;
+	if (color > 7)
+	{
+		color = 1;
+	}
+	auto returnColor = ToColor(color);
+	return returnColor;
+}
 
 int CustomColor::ToInt(CustomColor color) {
 	int result = 0;
@@ -26,20 +37,9 @@ int CustomColor::ToInt(CustomColor color) {
 }
 
 CustomColor* CustomColor::ToColor(int color) {
-	CustomColor* result = new CustomColor();
+	auto* result = new CustomColor();
 	result->R = (color >> 2) & 1;
 	result->G = (color >> 1) & 1;
 	result->B = color & 1;
 	return result;
-}
-
-CustomColor* CustomColor::GetNextMask(CustomColor currentMask) {
-	int color = ToInt(currentMask);
-	color += 1;
-	if (color > 7)
-	{
-		color = 1;
-	}
-	auto returnColor = ToColor(color);
-	return returnColor;
 }

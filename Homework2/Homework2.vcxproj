@@ -142,11 +142,13 @@
     <ClCompile Include="CustomColor.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Homework2.cpp" />
+    <ClCompile Include="RectangleDrawer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CustomColor.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Homework2.h" />
+    <ClInclude Include="RectangleDrawer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

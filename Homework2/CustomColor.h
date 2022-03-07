@@ -7,8 +7,9 @@ class CustomColor
 		int B;
 		CustomColor();
 		CustomColor(int r, int g, int b);
+		static CustomColor* GetNextMask(CustomColor currentMask);
+	private:
 		static int ToInt(CustomColor color);
 		static CustomColor* ToColor(int color);
-		static CustomColor* GetNextMask(CustomColor currentMask);
 };
 
